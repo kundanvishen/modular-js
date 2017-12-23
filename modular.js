@@ -17,7 +17,12 @@
 			this.template = this.$el.find('#people-template').html();
 		},
 		bindEvents: function(){
-			this.$button.on('click', addPerson); 
+			/**
+			 * Notice the addPerson.bind() method.
+			 * We are binding addPerson to people Object instead of addPerson Method 
+			 */
+			this.$button.on('click', addPerson.bind(this)); 
+			this.$ul.delegate('i.del', 'click', this.deletePerson.bind(this));
 		},
 		render: function(){
 			var data = {
@@ -27,6 +32,14 @@
 		},
 		addPerson: function(){
 			this.people.push(this.$input.val());
+			this.render();
+			this.$input.val('');
+		},
+		deletePerson: function(event){
+			var $remove = $(event.target).closest('li');
+			var i = this.$ul.find('li').indexOf($remove);
+			this.people.splice(i, 1);
+			this.render();
 		},
 	};
 
