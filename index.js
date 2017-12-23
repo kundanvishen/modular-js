@@ -9,3 +9,17 @@
  *  - efficient DOM Usage
  *  - No Memory Leaks
  */
+
+//  Object Literal
+var myModule = {
+	name: 'Defualt',
+	age: 24,
+	sayName: function(){
+		console.log(this.name);
+	},
+	setName: function(newName){
+		this.name = newName;
+	}
+};
+myModule.setName('John');
+myModule.sayName();
