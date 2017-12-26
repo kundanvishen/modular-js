@@ -88,6 +88,4 @@ var events = {
 		people.splice(i, 1);
 		_render();
 	}
-
-
 })();
