@@ -1,5 +1,5 @@
 /**
- * Classical Prototypal
+ * Classical Inheritance Examples
  */
 
 function inherits(ctor, superCtor) {
